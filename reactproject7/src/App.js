@@ -32,7 +32,7 @@ class App extends React.Component {
             {!this.state.countryList ? '' :this.state.countryList.map(country=>{
               return <Country country = {country}/>
             })}
-            {/* <Country country = {this.state.countryList} /> */}
+           
           </main>
         </div>
       </div>
