@@ -27,7 +27,7 @@ class Country extends React.Component {
     );
     return (
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-        <Button variant="success" className='buttons'>Click</Button>
+        <Button variant="success" className='buttons'>{this.props.country.name}</Button>
       </OverlayTrigger>
     );
   }
