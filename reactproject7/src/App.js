@@ -21,8 +21,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <img className='image' src='https://www.magical-planet.com/wp-content/uploads/2017/12/amsterdam-canals-house-boats-holland-netherlands-bike-boat-tour-flsergeygalyonkin.jpg' />
+        
         <div className="body">
+        <img className='image' src='https://www.magical-planet.com/wp-content/uploads/2017/12/amsterdam-canals-house-boats-holland-netherlands-bike-boat-tour-flsergeygalyonkin.jpg' />
           <header>Countries</header>
           <main>
             {!this.state.countryList
@@ -37,7 +38,7 @@ class App extends React.Component {
               <input placeholder='Capital:'></input>
               <input placeholder='Region:'></input>
               <input placeholder='Language Name:'></input>
-              <input placeholder='Native Name:'></input>
+              <input placeholder='Language Native Name:'></input>
             
             
             </label>

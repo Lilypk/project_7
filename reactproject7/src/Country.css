@@ -1,18 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-.container{
-    display: grid;
-    grid-template-columns: 25%;
-    grid-template-rows: 25%;
-    
-    
-}
-body {
-    display: flex;
-    flex-direction: column;
-    
-}
 .buttons {
     height: 200px;
     width: 200px;
