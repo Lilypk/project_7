@@ -17,19 +17,27 @@ class Country extends React.Component {
       <Popover id="popover-basic" className='popover'>
         <Popover.Title as="h3">Popover right</Popover.Title>
         <Popover.Content>
-          {this.props.country.name}
-          {this.props.country.capital}
-          {this.props.country.region}
-          {this.props.country.languages[0].name}
-          {this.props.country.languages[0].nativeName}
+          <form>
+            <label>
+          <input value= {this.props.country.name} />
+          <input value= {this.props.country.capital} />
+          <input value= {this.props.country.region} />
+          <input value= {this.props.country.languages[0].name} />
+          <input value= {this.props.country.languages[0].nativeName} />
+          </label>
+          </form>
         </Popover.Content>
+        
       </Popover>
     );
     return (
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
         <Button variant="success" className='buttons'>{this.props.country.name}</Button>
+        
       </OverlayTrigger>
+      
     );
+   
   }
 }
 export default Country;

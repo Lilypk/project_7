@@ -26,6 +26,7 @@ class App extends React.Component {
               ? ""
               : this.state.countryList.map((country) => {
                   return <Country country={country} />;
+                  
                 })}
           </main>
         </div>
