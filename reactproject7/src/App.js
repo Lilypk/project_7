@@ -19,6 +19,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        <div 
+        style={{
+          backgroundImage: `url('https://www.magical-planet.com/wp-content/uploads/2017/12/amsterdam-canals-house-boats-holland-netherlands-bike-boat-tour-flsergeygalyonkin.jpg')`, 
+          backgroundRepeat: 'no-repeat', height: '100%', width: '676px'
+        }}>
+
+        </div>
         <div className="body">
           <header>Countries</header>
           <main>
@@ -26,8 +33,19 @@ class App extends React.Component {
               ? ""
               : this.state.countryList.map((country) => {
                   return <Country country={country} />;
-                  
                 })}
+            <form>
+              <label>
+              <button className="buttons creatbutton">Add a country!</button>
+              <input placeholder='Name:'></input>
+              <input placeholder='Capital:'></input>
+              <input placeholder='Region:'></input>
+              <input placeholder='Language Name:'></input>
+              <input placeholder='Native Name:'></input>
+            
+            
+            </label>
+            </form>
           </main>
         </div>
       </div>
