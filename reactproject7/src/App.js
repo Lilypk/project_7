@@ -15,17 +15,13 @@ class App extends React.Component {
         this.setState({ countryList: data });
         console.log(this.state.countryList);
       });
+      
+        
   }
   render() {
     return (
       <div className="container">
-        <div 
-        style={{
-          backgroundImage: `url('https://www.magical-planet.com/wp-content/uploads/2017/12/amsterdam-canals-house-boats-holland-netherlands-bike-boat-tour-flsergeygalyonkin.jpg')`, 
-          backgroundRepeat: 'no-repeat', height: '100%', width: '676px'
-        }}>
-
-        </div>
+        <img className='image' src='https://www.magical-planet.com/wp-content/uploads/2017/12/amsterdam-canals-house-boats-holland-netherlands-bike-boat-tour-flsergeygalyonkin.jpg' />
         <div className="body">
           <header>Countries</header>
           <main>

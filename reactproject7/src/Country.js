@@ -4,7 +4,7 @@ import "./Country.css";
 import Popover from "react-bootstrap/popover";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 class Country extends React.Component {
   constructor() {
     super();
