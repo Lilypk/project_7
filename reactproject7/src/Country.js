@@ -25,6 +25,7 @@ class Country extends React.Component {
           <input value= {this.props.country.languages[0].name} />
           <input value= {this.props.country.languages[0].nativeName} />
           </label>
+        
           </form>
           
         </Popover.Content>
