@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Country from "./Country";
-import CreateCountry from './CreateCountry'
-import UpdateCountry from './UpdateCountry'
+import CreateCountry from "./CreateCountry";
+import UpdateCountry from "./UpdateCountry";
 
 class App extends React.Component {
   constructor() {
@@ -16,12 +16,41 @@ class App extends React.Component {
         languageNativaName: "",
       },
     };
-    // this.handleInputChange = this.handleInputChange.bind(this)
-    // this.addNewCountry = this.addNewCountry.bind(this)
-    
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.addNewCountry = this.addNewCountry.bind(this);
+    this.updateCountry = this.updateCountry.bind(this);
   }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-    
+    this.setState({
+      [name]: value,
+    });
+  }
+  addNewCountry(e) {
+    e.preventDefault();
+    if (!this.state.country) return;
+    const newCountry = {
+      name: this.state.name,
+      capital: this.state.capital,
+      region: this.state.region,
+      languageName: this.state.languageName,
+      languageNativaName: this.state.languageNativaName,
+    };
+  }
+  updateNewCountry(newCountry) {
+    this.setEditing(true);
+    this.setState({});
+  }
+  deleteNewCountry() {
+    const newCountry = this.state.newCountry.filter();
+    this.setState({ newCountry: newCountry });
+    if (this.state.editing === true) {
+      window.location.reload();
+    }
+  }
 
   componentDidMount() {
     fetch("http://localhost:9002/countries/")
@@ -46,9 +75,8 @@ class App extends React.Component {
               : this.state.countryList.map((country) => {
                   return <Country country={country} />;
                 })}
-                <CreateCountry />
-                <UpdateCountry />
-           
+            <CreateCountry />
+            <UpdateCountry />
           </main>
         </div>
       </div>
