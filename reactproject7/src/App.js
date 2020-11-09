@@ -16,40 +16,40 @@ class App extends React.Component {
         languageNativaName: "",
       },
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.addNewCountry = this.addNewCountry.bind(this);
-    this.updateCountry = this.updateCountry.bind(this);
-  }
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  //   this.handleInputChange = this.handleInputChange.bind(this);
+  //   this.addNewCountry = this.addNewCountry.bind(this);
+  //   this.updateCountry = this.updateCountry.bind(this);
+  // }
+  // handleInputChange(event) {
+  //   const target = event.target;
+  //   const value = target.value;
+  //   const name = target.name;
 
-    this.setState({
-      [name]: value,
-    });
-  }
-  addNewCountry(e) {
-    e.preventDefault();
-    if (!this.state.country) return;
-    const newCountry = {
-      name: this.state.name,
-      capital: this.state.capital,
-      region: this.state.region,
-      languageName: this.state.languageName,
-      languageNativaName: this.state.languageNativaName,
-    };
-  }
-  updateNewCountry(newCountry) {
-    this.setEditing(true);
-    this.setState({});
-  }
-  deleteNewCountry() {
-    const newCountry = this.state.newCountry.filter();
-    this.setState({ newCountry: newCountry });
-    if (this.state.editing === true) {
-      window.location.reload();
-    }
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
+  // addNewCountry(e) {
+  //   e.preventDefault();
+  //   if (!this.state.country) return;
+  //   const newCountry = {
+  //     name: this.state.name,
+  //     capital: this.state.capital,
+  //     region: this.state.region,
+  //     languageName: this.state.languageName,
+  //     languageNativaName: this.state.languageNativaName,
+  //   };
+  // }
+  // updateNewCountry(newCountry) {
+  //   this.setEditing(true);
+  //   this.setState({});
+  // }
+  // deleteNewCountry() {
+  //   const newCountry = this.state.newCountry.filter();
+  //   this.setState({ newCountry: newCountry });
+  //   if (this.state.editing === true) {
+  //     window.location.reload();
+  //   }
   }
 
   componentDidMount() {
