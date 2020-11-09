@@ -28,9 +28,7 @@ For this project, I used React to build my front end to my previous back end pro
 
 ### Installing
 
-
-
-
+To set up this project you will first need to fork my repo by clicking on Fork in the top right corner and choosing where to fork to. Then you will click Clone or Download and copy the url. Next open your terminal and change to the directory you wish to work on the project. Here you will run the command 'git clone' followed by pasting the url you just copied. Hit enter. You can now change to the project directory then change to the reactproject7 directory. Run the command npm start and this will bring you to the project in your chrome. 
 
 ## Authors
 
