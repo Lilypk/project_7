@@ -15,7 +15,7 @@ class Country extends React.Component {
     console.log(this.props);
     const popover = (
       <Popover id="popover-basic" className='popover'>
-        <Popover.Title as="h3">Popover right</Popover.Title>
+        <Popover.Title as="h3"></Popover.Title>
         <Popover.Content>
           <form>
             <label>
@@ -24,6 +24,7 @@ class Country extends React.Component {
           <input value= {this.props.country.region} />
           <input value= {this.props.country.languages[0].name} />
           <input value= {this.props.country.languages[0].nativeName} />
+          <button>Delete</button>
           </label>
         
           </form>
