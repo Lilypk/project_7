@@ -2,7 +2,7 @@ import React from 'react'
 
 const CreateCountry = props => {
     return (
-      <form onSubmit={props.addNewCountry}>
+      <form>
 <div>
         <div>
           <label></label>
@@ -18,14 +18,14 @@ const CreateCountry = props => {
         </div>
         <div>
           <label></label>
-          <input type="text" name="Language Name" placeholder='Language Name:' value={props.languageName} onChange={ props.handleInputChange} />
+          <input type="text" name="Language Name" placeholder='Language Name:' value={props.languages[0].name} onChange={ props.handleInputChange} />
         </div>
         <div>
           <label></label>
-          <input type="text" name="Language Native Name" placeholder='Language Native Name:' value={props.languageNativeName} onChange={ props.handleInputChange} />
+          <input type="text" name="Language Native Name" placeholder='Language Native Name:' value={props.languages[0].nativeName} onChange={ props.handleInputChange} />
         </div>
         
-        <button>Add a Country!</button>
+        <button onClick={props.addNewCountry}>Add a Country!</button>
       </div>
 
 

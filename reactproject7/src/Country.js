@@ -12,7 +12,7 @@ class Country extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const popover = (
       <Popover id="popover-basic" className='popover'>
         <Popover.Title as="h3"></Popover.Title>

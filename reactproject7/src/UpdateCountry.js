@@ -17,11 +17,11 @@ const UpdateCountry = props => {
       </div>
       <div>
         <label></label>
-        <input type="text" name="Language Name" value={props.languageName} onChange={ props.handleInputChange} />
+        <input type="text" name="Language Name" value={props.languages[0].name} onChange={ props.handleInputChange} />
       </div>
       <div>
         <label></label>
-        <input type="text" name="Language Native Name" value={props.languageNativeName} onChange={ props.handleInputChange} />
+        <input type="text" name="Language Native Name" value={props.languages[0].nativeName} onChange={ props.handleInputChange} />
       </div>
       <button onClick={ props.updateCountry } > Update </button>
       

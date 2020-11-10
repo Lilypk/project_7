@@ -12,45 +12,82 @@ class App extends React.Component {
         name: "",
         capital: "",
         region: "",
-        languageName: "",
-        languageNativaName: "",
+        languages: [
+          {
+            name: "",
+            nativeName: "",
+          },
+        ],
       },
     };
-  //   this.handleInputChange = this.handleInputChange.bind(this);
-  //   this.addNewCountry = this.addNewCountry.bind(this);
-  //   this.updateCountry = this.updateCountry.bind(this);
-  // }
-  // handleInputChange(event) {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
-  // addNewCountry(e) {
-  //   e.preventDefault();
-  //   if (!this.state.country) return;
-  //   const newCountry = {
-  //     name: this.state.name,
-  //     capital: this.state.capital,
-  //     region: this.state.region,
-  //     languageName: this.state.languageName,
-  //     languageNativaName: this.state.languageNativaName,
-  //   };
-  // }
-  // updateNewCountry(newCountry) {
-  //   this.setEditing(true);
-  //   this.setState({});
-  // }
-  // deleteNewCountry() {
-  //   const newCountry = this.state.newCountry.filter();
-  //   this.setState({ newCountry: newCountry });
-  //   if (this.state.editing === true) {
-  //     window.location.reload();
-  //   }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.addNewCountry = this.addNewCountry.bind(this);
+    // this.updateCountry = this.updateCountry.bind(this);
+    // this.deleteCountry = this.deleteCountry.bind(this);
   }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    // console.log(target.value)
+    this.setState({
+      newCountry: { [name]: value },
+      updateCountry: { [name]: value },
+      deleteCountry: { [name]: value },
+    });
+  }
+  addNewCountry(e) {
+    e.preventDefault();
+    let url = "https://project-6-use-hero.herokuapp.com/countries";
+    let formData = new FormData();
+    formData.append("name", this.state.newCountry.name);
+    formData.append("capital", this.state.newCountry.capital);
+    formData.append("region", this.state.newCountry.region);
+    formData.append(
+      "languages[0].name",
+      this.state.newCountry.languages[0].name
+    );
+    formData.append(
+      "languages[0].nativeName",
+      this.state.newCountry.languages[0].nativeName
+    );
+    fetch(url, { method: "POST", body: formData })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+  }
+  // updateCountry(e) {
+  //   e.preventDefault();
+  //   let url = "https://project-6-use-hero.herokuapp.com/countries/:id";
+  //   let updateFormData = new UpdateFormData();
+  //   updateFormData.append("name", this.state.updateCountry.name);
+  //   updateFormData.append("capital", this.state.updateCountry.capital);
+  //   updateFormData.append("region", this.state.updateCountry.region);
+  //   updateFormData.append(
+  //     "languages[0].name",
+  //     this.state.updateCountry.languages[0].name
+  //   );
+  //   updateFormData.append(
+  //     "languages[0].nativeName",
+  //     this.state.updateCountry.languages[0].nativeName
+  //   );
+  //   fetch(url, { method: "PUT", body: updateFormData })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(res);
+  //     });
+  // }
+  // deleteCountry(e) {
+  //   e.preventDefault()
+  //   let url = 'https://project-6-use-hero.herokuapp.com/countries/:id'
+  //   let deleteFormData = new DeleteFormData()
+  //   fetch(url, { method: 'DELETE', body: deleteFormData })
+  //   .then((res)=>res.json())
+  //   .then((res)=>{
+  //     console.log(res)
+  //   })
+  // }
 
   componentDidMount() {
     fetch("http://localhost:9002/countries/")
@@ -75,8 +112,14 @@ class App extends React.Component {
               : this.state.countryList.map((country) => {
                   return <Country country={country} />;
                 })}
-            <CreateCountry />
-            <UpdateCountry />
+            <CreateCountry
+              handleInputChange={this.handleInputChange}
+              addNewCountry={this.addNewCountry}
+            />
+            <UpdateCountry
+              handleInputChange={this.handleInputChange}
+              updateCountry={this.updateCountry}
+            />
           </main>
         </div>
       </div>
