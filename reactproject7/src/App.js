@@ -17,7 +17,7 @@ class App extends React.Component {
             name: "",
             nativeName: "",
           },
-        ],
+        ]
       },
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,6 +51,7 @@ class App extends React.Component {
       "languages[0].nativeName",
       this.state.newCountry.languages[0].nativeName
     );
+    return formData
     fetch(url, { method: "POST", body: formData })
       .then((res) => res.json())
       .then((res) => {

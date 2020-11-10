@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CreateCountry = props => {
+  console.log(props)
     return (
       <form>
 <div>
