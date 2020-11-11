@@ -17,25 +17,32 @@ class App extends React.Component {
             name: "",
             nativeName: "",
           },
-        ]
+        ],
+
       },
+
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.addNewCountry = this.addNewCountry.bind(this);
     // this.updateCountry = this.updateCountry.bind(this);
     // this.deleteCountry = this.deleteCountry.bind(this);
   }
+
   handleInputChange(event) {
     const target = event.target;
-    const value = target.value;
+    const value = event.target.value;
     const name = target.name;
-    // console.log(target.value)
+    
+    console.log(name)
     this.setState({
-      newCountry: { [name]: value },
-      updateCountry: { [name]: value },
-      deleteCountry: { [name]: value },
+      newCountry: { [event.target.name]: value }
+
+      // updateCountry: { [name]: value },
+      // deleteCountry: { [name]: value },
     });
+    
   }
+  //created an event listener on addNewCountry button
   addNewCountry(e) {
     e.preventDefault();
     let url = "https://project-6-use-hero.herokuapp.com/countries";
@@ -43,15 +50,16 @@ class App extends React.Component {
     formData.append("name", this.state.newCountry.name);
     formData.append("capital", this.state.newCountry.capital);
     formData.append("region", this.state.newCountry.region);
-    formData.append(
-      "languages[0].name",
-      this.state.newCountry.languages[0].name
-    );
-    formData.append(
-      "languages[0].nativeName",
-      this.state.newCountry.languages[0].nativeName
-    );
-    return formData
+    // formData.append(
+    //   "languages[0].name",
+    //   this.state.newCountry.languages[0].name
+    // );
+    // formData.append(
+    //   "languages[0].nativeName",
+    //   this.state.newCountry.languages[0].nativeName
+    // );
+    console.log(this.state.newCountry.name)
+    console.dir(formData)
     fetch(url, { method: "POST", body: formData })
       .then((res) => res.json())
       .then((res) => {
@@ -113,14 +121,15 @@ class App extends React.Component {
               : this.state.countryList.map((country) => {
                   return <Country country={country} />;
                 })}
-            <CreateCountry
+             <CreateCountry
               handleInputChange={this.handleInputChange}
               addNewCountry={this.addNewCountry}
+              
             />
-            <UpdateCountry
+            {/* <UpdateCountry
               handleInputChange={this.handleInputChange}
               updateCountry={this.updateCountry}
-            />
+            /> */} 
           </main>
         </div>
       </div>
